@@ -17,40 +17,35 @@ public class SelTest {
     public static String url = "https://www.demoblaze.com";
 
 
+
+
     //Step 9-10 of the Homework
     @BeforeClass
-    public static void initWebDriverMaxRef() {
+    public static void initWebDriver() {
         System.setProperty("webdriver.chrome.driver", "/Users/martinpalanjyan/Desktop/chromedriver");
         driver = new ChromeDriver();
-        driver.get(url);
         driver.manage().window().maximize();
-        driver.navigate().refresh();
+        driver.get(url);
     }
 
 
-    @BeforeClass
-    public static void navigateToCart() {
-        System.setProperty("webdriver.chrome.driver", "/Users/martinpalanjyan/Desktop/chromedriver");
-        driver = new ChromeDriver();
+    @Test
+    public void navigateToCart() {
         driver.get(url);
         driver.navigate().to("https://www.demoblaze.com/cart.html");
     }
 
 
-    @BeforeClass
-    public static void navigateBack() {
-        System.setProperty("webdriver.chrome.driver", "/Users/martinpalanjyan/Desktop/chromedriver");
-        driver = new ChromeDriver();
+    @Test
+    public void navigateBack() {
         driver.get(url);
         driver.navigate().to("https://www.demoblaze.com/cart.html");
         driver.navigate().back();
     }
 
 
-    @BeforeClass
-    public static void urlOfTheWebsite() {
-        System.setProperty("webdriver.chrome.driver", "/Users/martinpalanjyan/Desktop/chromedriver");
-        driver = new ChromeDriver();
+    @Test
+    public void urlOfTheWebsite() {
         driver.get(url);
         System.out.println(driver.getCurrentUrl());
         System.out.println(driver.getTitle());
@@ -63,7 +58,6 @@ public class SelTest {
     @Test
     public void logInButton() {
         //Button
-        driver = new ChromeDriver();
         driver.get(url);
         WebElement loginButton = driver.findElement(By.id("login2"));
         loginButton.click();
@@ -73,12 +67,11 @@ public class SelTest {
 
     @Test
     public void logInData() {
-        driver = new ChromeDriver();
         driver.get(url);
         //Button
         WebElement logIn = driver.findElement(By.id("login2"));
         logIn.click();
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //Input field
         WebElement userName = driver.findElement(By.id("loginusername"));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(userName));
@@ -93,12 +86,11 @@ public class SelTest {
 
     @Test
     public void SignUpData() {
-        driver = new ChromeDriver();
         driver.get(url);
         //Button
         WebElement signUp = driver.findElement(By.id("signin2"));
         signUp.click();
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //Input Field
         WebElement userName = driver.findElement(By.id("sign-username"));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(userName));
@@ -113,7 +105,6 @@ public class SelTest {
 
     @Test
     public void clearData() {
-        driver = new ChromeDriver();
         driver.get(url);
         //Button
         WebElement signUp = driver.findElement(By.id("signin2"));
@@ -129,7 +120,6 @@ public class SelTest {
 
     @Test
     public void workWithMainName() {
-        driver = new ChromeDriver();
         driver.get(url);
         //Text Field
         WebElement getT = driver.findElement(By.id("nava"));
@@ -145,7 +135,6 @@ public class SelTest {
 
     @Test
     public void similarElements() {
-        driver = new ChromeDriver();
         driver.get(url);
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(1));
         //List of elements
@@ -156,7 +145,7 @@ public class SelTest {
         }
     }
 
-   
+
 }
 
 
